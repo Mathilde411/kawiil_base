@@ -1,0 +1,17 @@
+<odoo>
+    <record model="appel.personne" id="personne_mathilde">
+        <field name="name">Mathilde (MEPL)</field>
+        <field name="age" eval="25"/>
+    </record>
+
+    <data noupdate="1">
+        <record model="appel.personne" id="personne_carles">
+            <field name="name">Carles</field>
+            <field name="age" eval="25"/>
+        </record>
+
+        <record model="res.partner" id="personne_jacques">
+            <field name="name">Jacques</field>
+        </record>
+    </data>
+</odoo>
