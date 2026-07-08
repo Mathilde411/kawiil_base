@@ -10,7 +10,9 @@
         "stock",
     ],
     "data": [
-        
+        "data/personne.xml",
+        "security/groups.xml",
+        "security/ir.model.access.csv",
     ],
     "demo": [
         

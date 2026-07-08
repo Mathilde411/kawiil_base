@@ -1,0 +1,20 @@
+<odoo>
+    <record model="res.groups.privilege" id="privilege_super_module">
+        <field name="name">Super Module</field>
+        <field name="category_id" ref="base.module_category_master_data"/>
+    </record>
+
+    <record model="res.groups" id="group_super_module_user">
+        <field name="name">Utilisateur</field>
+        <field name="sequence" eval="10"/>
+        <field name="privilege_id" ref="privilege_super_module"/>
+        <field name="implied_ids" eval="[(6, 0, [ref('base.group_user')])]"/>
+    </record>
+
+    <record model="res.groups" id="group_super_module_admin">
+        <field name="name">Administrateur</field>
+        <field name="sequence" eval="20"/>
+        <field name="privilege_id" ref="privilege_super_module"/>
+        <field name="implied_ids" eval="[(6, 0, [ref('super_module.group_super_module_user')])]"/>
+    </record>
+</odoo>
