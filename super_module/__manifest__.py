@@ -12,7 +12,10 @@
     "data": [
         "data/personne.xml",
         "security/groups.xml",
+        "security/rules.xml",
         "security/ir.model.access.csv",
+        "views/appel_personne_views.xml",
+        "views/super_module_menus.xml",
     ],
     "demo": [
         

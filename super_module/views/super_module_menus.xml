@@ -1,0 +1,21 @@
+<odoo>
+    <menuitem
+        id="root_menu"
+        name="Super Module"
+        groups="group_super_module_user"
+        sequence="20">
+        <menuitem
+            id="submenu_menu"
+            name="Super Submenu"
+            sequence="10">
+            <menuitem
+                id="appel_personne_menu"
+                action="appel_personne_action"
+                sequence="10"/>
+            <menuitem
+                id="receipt_menu"
+                action="stock.action_picking_tree_incoming"
+                sequence="20"/>
+        </menuitem>
+    </menuitem>
+</odoo>

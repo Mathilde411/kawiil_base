@@ -6,3 +6,4 @@ class Personne(models.Model):
 
     name = fields.Char(string="Nom")
     age = fields.Integer()
+    user_id = fields.Many2one('res.users')
