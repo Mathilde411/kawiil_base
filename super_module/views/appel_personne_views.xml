@@ -1,0 +1,8 @@
+<odoo>
+    <record model="ir.actions.act_window" id="appel_personne_action">
+        <field name="name">Appel Personne</field>
+        <field name="path">personne</field>
+        <field name="res_model">appel.personne</field>
+        <field name="view_mode">list,form</field>
+    </record>
+</odoo>
