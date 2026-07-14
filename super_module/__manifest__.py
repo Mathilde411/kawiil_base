@@ -18,7 +18,7 @@
         "views/super_module_menus.xml",
     ],
     "demo": [
-        
+
     ],
     "application": True,
 }

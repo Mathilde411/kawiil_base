@@ -1,4 +1,43 @@
 <odoo>
+
+    <record id="appel_personne_view_form" model="ir.ui.view">
+        <field name="name">appel.personne.view.form</field>
+        <field name="model">appel.personne</field>
+        <field name="arch" type="xml">
+            <form string="Appel Personne">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="date_naissance"/>
+                            <field name="age"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                    </group>
+                    <notebook>
+                        <page name="comments" string="Commentaire">
+                            <field name="commentaire_ids">
+                                <list editable="bottom">
+                                    <field name="user_id"/>
+                                    <field name="timestamp"/>
+                                    <field name="commentaire"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
     <record model="ir.actions.act_window" id="appel_personne_action">
         <field name="name">Appel Personne</field>
         <field name="path">personne</field>
