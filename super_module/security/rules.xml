@@ -1,4 +1,5 @@
 <odoo>
+    <!--
     <record id="appel_personne_base_rule" model="ir.rule">
         <field name="name">Appel Personne: Base rule</field>
         <field name="model_id" ref="model_appel_personne"/>
@@ -20,4 +21,27 @@
         <field name="perm_unlink" eval="1"/>
         <field name="domain_force">[(1, '=', 1)]</field>
     </record>
+
+    <record id="appel_commentaire_base_rule" model="ir.rule">
+        <field name="name">Appel Commentaire: Base rule</field>
+        <field name="model_id" ref="model_appel_commentaire"/>
+        <field name="groups" eval="[(6, 0, [ref('super_module.group_super_module_user')])]" />
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="domain_force">['|', ('user_id', '=', user.id), ('user_id', '=', False)]</field>
+    </record>
+
+    <record id="appel_commentaire_admin_rule" model="ir.rule">
+        <field name="name">Appel Commentaire: Admin rule</field>
+        <field name="model_id" ref="model_appel_personne"/>
+        <field name="groups" eval="[(6, 0, [ref('super_module.group_super_module_admin')])]" />
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+        <field name="domain_force">[(1, '=', 1)]</field>
+    </record>
+    -->
 </odoo>

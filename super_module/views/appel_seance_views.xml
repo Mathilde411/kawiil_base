@@ -1,10 +1,10 @@
 <odoo>
 
-    <record id="appel_personne_view_form" model="ir.ui.view">
-        <field name="name">appel.personne.view.form</field>
-        <field name="model">appel.personne</field>
+    <record id="appel_seance_view_form" model="ir.ui.view">
+        <field name="name">appel.seance.view.form</field>
+        <field name="model">appel.seance</field>
         <field name="arch" type="xml">
-            <form string="Appel Personne">
+            <form string="Appel Séance">
                 <sheet>
                     <div class="oe_title">
                         <label for="name"/>
@@ -14,12 +14,11 @@
                     </div>
                     <group>
                         <group>
-                            <field name="user_id" widget="many2one_avatar_user"/>
-                            <field name="date_naissance"/>
-                            <field name="age"/>
+                            <field name="date"/>
+                            <field name="personne_ids" widget="many2many_tags"/>
                         </group>
                         <group>
-                            <field name="description"/>
+                            <field name="user_id" widget="many2one_avatar_user"/>
                         </group>
                     </group>
                     <notebook>
@@ -31,30 +30,32 @@
                                 </list>
                             </field>
                         </page>
+                        <page name="notes" string="Notes">
+                            <field name="notes" placeholder="Notes..."/>
+                        </page>
                     </notebook>
                 </sheet>
             </form>
         </field>
     </record>
 
-    <record id="appel_personne_view_list" model="ir.ui.view">
-        <field name="name">appel.personne.view.list</field>
-        <field name="model">appel.personne</field>
+    <record id="appel_seance_view_list" model="ir.ui.view">
+        <field name="name">appel.seance.view.list</field>
+        <field name="model">appel.seance</field>
         <field name="arch" type="xml">
-            <list string="Appel Personne">
+            <list string="Appel Séance">
                 <field name="name" optional="show"/>
                 <field name="user_id" optional="show" widget="many2one_avatar_user"/>
-                <field name="date_naissance" optional="hide"/>
-                <field name="age" optional="show"/>
-                <field name="description" optional="hide"/>
+                <field name="date" optional="hide"/>
+                <field name="personne_ids" optional="show" widget="many2many_tags"/>
             </list>
         </field>
     </record>
     
-    <record model="ir.actions.act_window" id="appel_personne_action">
-        <field name="name">Appel Personne</field>
-        <field name="path">personne</field>
-        <field name="res_model">appel.personne</field>
+    <record model="ir.actions.act_window" id="appel_seance_action">
+        <field name="name">Appel Séance</field>
+        <field name="path">seance</field>
+        <field name="res_model">appel.seance</field>
         <field name="view_mode">list,form</field>
     </record>
 </odoo>

@@ -13,8 +13,8 @@
                 action="appel_personne_action"
                 sequence="10"/>
             <menuitem
-                id="receipt_menu"
-                action="stock.action_picking_tree_incoming"
+                id="appel_seance_menu"
+                action="appel_seance_action"
                 sequence="20"/>
         </menuitem>
     </menuitem>

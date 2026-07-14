@@ -1,6 +1,6 @@
-from odoo import api, fields, models
-
 from dateutil.relativedelta import relativedelta
+
+from odoo import api, fields, models
 
 
 class Personne(models.Model):
@@ -13,6 +13,7 @@ class Personne(models.Model):
     user_id = fields.Many2one("res.users")
     description = fields.Text()
 
+    seance_ids = fields.Many2many("appel.seance")
     commentaire_ids = fields.One2many("appel.commentaire", "personne_id")
 
     @api.depends("date_naissance")
@@ -20,6 +21,6 @@ class Personne(models.Model):
         for personne in self:
             delta = relativedelta(fields.Date.today(), personne.date_naissance)
             personne.age = delta.years
-            
-            
-            
+
+
+

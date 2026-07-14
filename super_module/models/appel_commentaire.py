@@ -1,13 +1,13 @@
-from odoo import api, fields, models
+from odoo import fields, models
 
 
 class Commentaire(models.Model):
     _name = "appel.commentaire"
     _description = "Commentaire Appel"
 
-    timestamp = fields.Datetime()
-    commentaire = fields.Text()
+    timestamp = fields.Datetime(required=True)
+    commentaire = fields.Text(required=True)
 
     personne_id = fields.Many2one("appel.personne", required=True)
-    user_id = fields.Many2one(related="personne_id.user_id")
+    seance_id = fields.Many2one("appel.seance", required=True)
 

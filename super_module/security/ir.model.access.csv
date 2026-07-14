@@ -1,4 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_appel_personne_utilisateur,appel.personne.utilisateur,model_appel_personne,group_super_module_user,1,0,0,0
-access_appel_personne_admin,appel.personne.admin,model_appel_personne,group_super_module_admin,1,1,1,1
+access_appel_personne_utilisateur,appel.personne.utilisateur,model_appel_personne,group_super_module_user,1,1,1,1
 access_appel_commentaire_utilisateur,appel.commentaire.utilisateur,model_appel_commentaire,group_super_module_user,1,1,1,1
+access_appel_seance_utilisateur,appel.seance.utilisateur,model_appel_seance,group_super_module_user,1,1,1,1
