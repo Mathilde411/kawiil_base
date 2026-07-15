@@ -10,6 +10,7 @@
         "stock",
     ],
     "data": [
+        "data/actions.xml",
         "data/personne.xml",
         "security/groups.xml",
         "security/rules.xml",

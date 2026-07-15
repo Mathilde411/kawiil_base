@@ -10,4 +10,6 @@ class Commentaire(models.Model):
 
     personne_id = fields.Many2one("appel.personne", required=True)
     seance_id = fields.Many2one("appel.seance", required=True)
+    seance_state = fields.Selection(related="seance_id.state")
+    seance_personne_ids = fields.Many2many(related="seance_id.personne_ids")
 

@@ -5,6 +5,25 @@
         <field name="model">appel.seance</field>
         <field name="arch" type="xml">
             <form string="Appel Séance">
+                <header>
+                    <button type="object" 
+                        name="action_ongoing" 
+                        string="Démarrer" 
+                        class="btn-primary"
+                        invisible="state != 'draft'"/>
+                    <button type="object" 
+                        name="action_done" 
+                        string="Terminer" 
+                        class="btn-primary"
+                        invisible="state != 'ongoing'"/>
+                    <button type="object" 
+                        name="action_cancel" 
+                        string="Annuler" 
+                        class="btn-secondary"
+                        invisible="state in ('done', 'cancel')"/>
+                    
+                    <field name="state" widget="statusbar" statusbar_visible="draft,ongoing,done"/>
+                </header>
                 <sheet>
                     <div class="oe_title">
                         <label for="name"/>
@@ -14,24 +33,28 @@
                     </div>
                     <group>
                         <group>
-                            <field name="date"/>
-                            <field name="personne_ids" widget="many2many_tags"/>
+                            <field name="date" readonly="state != 'draft'"/>
+                            <field name="personne_ids" widget="many2many_tags" readonly="state == 'done'"/>
                         </group>
                         <group>
-                            <field name="user_id" widget="many2one_avatar_user"/>
+                            <field name="user_id" 
+                                widget="many2one_avatar_user" 
+                                readonly="state != 'draft'"/>
                         </group>
                     </group>
                     <notebook>
-                        <page name="comments" string="Commentaire">
-                            <field name="commentaire_ids">
+                        <page name="comments" string="Commentaire" invisible="state == 'draft'">
+                            <field name="commentaire_ids" readonly="state == 'done'">
                                 <list editable="bottom">
-                                    <field name="timestamp"/>
-                                    <field name="commentaire"/>
+                                    <field name="personne_id" 
+                                        domain="[('id', 'in', seance_personne_ids)]"/>
+                                    <field name="timestamp" />
+                                    <field name="commentaire" />
                                 </list>
                             </field>
                         </page>
                         <page name="notes" string="Notes">
-                            <field name="notes" placeholder="Notes..."/>
+                            <field name="notes" placeholder="Notes..." readonly="state == 'done'"/>
                         </page>
                     </notebook>
                 </sheet>

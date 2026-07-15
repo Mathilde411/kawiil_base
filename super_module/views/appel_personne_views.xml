@@ -5,6 +5,12 @@
         <field name="model">appel.personne</field>
         <field name="arch" type="xml">
             <form string="Appel Personne">
+                <header>
+                    <button type="action" 
+                        name="%(date_naissance_action)d" 
+                        string="RaZ Anniversaire" 
+                        class="btn-primary"/>
+                </header>
                 <sheet>
                     <div class="oe_title">
                         <label for="name"/>
@@ -22,16 +28,6 @@
                             <field name="description"/>
                         </group>
                     </group>
-                    <notebook>
-                        <page name="comments" string="Commentaire">
-                            <field name="commentaire_ids">
-                                <list editable="bottom">
-                                    <field name="timestamp"/>
-                                    <field name="commentaire"/>
-                                </list>
-                            </field>
-                        </page>
-                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -42,6 +38,12 @@
         <field name="model">appel.personne</field>
         <field name="arch" type="xml">
             <list string="Appel Personne">
+                <header>
+                    <button type="action" 
+                        name="%(date_naissance_action)d" 
+                        string="RaZ Anniversaire" 
+                        class="btn-primary"/>
+                </header>
                 <field name="name" optional="show"/>
                 <field name="user_id" optional="show" widget="many2one_avatar_user"/>
                 <field name="date_naissance" optional="hide"/>
