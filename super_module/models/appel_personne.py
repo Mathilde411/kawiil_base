@@ -25,11 +25,16 @@ class Personne(models.Model):
     seance_ids = fields.Many2many("appel.seance")
     commentaire_ids = fields.One2many("appel.commentaire", "personne_id")
 
+    seance_count = fields.Integer(compute="_compute_seance_count")
+
+    
+    def _compute_seance_count(self):
+        for personne in self:
+            personne.seance_count = self.env['appel.seance'].search_count([('personne_ids', 'any', [('id', '=', personne.id)])])
+
     @api.depends("date_naissance")
     def _compute_age(self):
         for personne in self:
             delta = relativedelta(fields.Date.today(), personne.date_naissance)
             personne.age = delta.years
-
-
-
+        

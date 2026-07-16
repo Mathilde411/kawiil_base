@@ -1,5 +1,5 @@
 from odoo import api, fields, models
-from odoo.exceptions import ValidationError
+from odoo.exceptions import ValidationError, UserError
 
 class Seance(models.Model):
     _name = "appel.seance"
@@ -29,6 +29,12 @@ class Seance(models.Model):
         for seance in self:
             if seance.state in ('ongoing', 'done') and len(seance.personne_ids) < 2:
                 raise ValidationError("Il est impossible de démarrer une séance avec moins de 2 personnes.")
+
+    @api.ondelete(at_uninstall=False)
+    def _unlink_check_something(self):
+        for seance in self:
+            if seance.state in ("ongoing", "done"):
+                raise UserError("Il est impossible de supprimer une déance démarrée.")
 
     def action_ongoing(self):
         self.state = 'ongoing'

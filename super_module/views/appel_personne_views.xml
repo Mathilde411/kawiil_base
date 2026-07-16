@@ -12,6 +12,16 @@
                         class="btn-primary"/>
                 </header>
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            class="oe_stat_button"
+                            type="action"
+                            name="%(appel_seance_action_personne)d"
+                            icon="fa-video-camera"
+                            invisible="seance_count == 0">
+                            <field name="seance_count" string="Séances" widget="statinfo"/>
+                        </button>
+                    </div>
                     <div class="oe_title">
                         <label for="name"/>
                         <h1>

@@ -1,0 +1,8 @@
+<odoo>
+    <record id="commentaire_sequence" model="ir.sequence">
+        <field name="name">Séquence Commentaire</field>
+        <field name="code">commentaire</field>
+        <field name="prefix">COM/</field>
+        <field name="padding">6</field>
+    </record>
+</odoo>

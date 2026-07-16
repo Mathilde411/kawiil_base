@@ -12,11 +12,12 @@
     "data": [
         "data/actions.xml",
         "data/personne.xml",
+        "data/sequence.xml",
         "security/groups.xml",
         "security/rules.xml",
         "security/ir.model.access.csv",
-        "views/appel_personne_views.xml",
         "views/appel_seance_views.xml",
+        "views/appel_personne_views.xml",
         "views/super_module_menus.xml",
     ],
     "demo": [

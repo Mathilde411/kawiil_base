@@ -46,6 +46,7 @@
                         <page name="comments" string="Commentaire" invisible="state == 'draft'">
                             <field name="commentaire_ids" readonly="state == 'done'">
                                 <list editable="bottom">
+                                    <field name="name"/>
                                     <field name="personne_id" 
                                         domain="[('id', 'in', seance_personne_ids)]"/>
                                     <field name="timestamp" />
@@ -80,5 +81,13 @@
         <field name="path">seance</field>
         <field name="res_model">appel.seance</field>
         <field name="view_mode">list,form</field>
+    </record>
+
+
+    <record model="ir.actions.act_window" id="appel_seance_action_personne">
+        <field name="name">Appel Séance</field>
+        <field name="res_model">appel.seance</field>
+        <field name="view_mode">list,form</field>
+        <field name="domain">[('personne_ids', 'any', [('id', '=', active_id)])]</field>
     </record>
 </odoo>
