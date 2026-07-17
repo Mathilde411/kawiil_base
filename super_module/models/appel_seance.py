@@ -28,7 +28,7 @@ class Seance(models.Model):
     @api.constrains('state', 'personne_ids')
     def _check_corum(self):
         for seance in self:
-            if seance.state in ('ongoing', 'done') and len(seance.personne_ids) < 2:
+            if seance.state in ('ongoing', 'done') and len(seance.partner_ids) < 2:
                 raise ValidationError("Il est impossible de démarrer une séance avec moins de 2 personnes.")
 
     @api.ondelete(at_uninstall=False)

@@ -4,7 +4,7 @@ from dateutil.relativedelta import relativedelta
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
-    date_naissance = fields.Date(required=True)
+    date_naissance = fields.Date()
     age = fields.Integer(compute="_compute_age", store=True)
 
     seance_ids = fields.Many2many("appel.seance")
@@ -16,7 +16,7 @@ class ResPartner(models.Model):
     def _compute_age(self):
         for personne in self:
             delta = relativedelta(fields.Date.today(), personne.date_naissance)
-            personne.age = delta.years
+            personne.age = delta.years + 1
 
     @api.depends('seance_ids')
     def _compute_seance_count(self):
