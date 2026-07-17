@@ -3,6 +3,7 @@ from odoo.exceptions import ValidationError, UserError
 
 class Seance(models.Model):
     _name = "appel.seance"
+    _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Séance Appel"
 
     name = fields.Char(compute="_compute_name")
@@ -16,7 +17,7 @@ class Seance(models.Model):
         ('cancel', "Anulée"),
     ], default="draft", readonly=True, copy=False, required=True)
 
-    personne_ids = fields.Many2many("appel.personne")
+    partner_ids = fields.Many2many("res.partner")
     commentaire_ids = fields.One2many("appel.commentaire", "seance_id")
 
     @api.depends('date')

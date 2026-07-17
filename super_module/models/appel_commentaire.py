@@ -9,10 +9,10 @@ class Commentaire(models.Model):
     commentaire = fields.Text(required=True)
 
     name = fields.Char(readonly=True, default='Nouveau')
-    personne_id = fields.Many2one("appel.personne", required=True)
+    partner_id = fields.Many2one("res.partner", required=True)
     seance_id = fields.Many2one("appel.seance", required=True)
     seance_state = fields.Selection(related="seance_id.state")
-    seance_personne_ids = fields.Many2many(related="seance_id.personne_ids")
+    seance_partner_ids = fields.Many2many(related="seance_id.partner_ids")
 
     @api.model_create_multi
     def create(self, vals_list):

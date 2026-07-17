@@ -1,0 +1,24 @@
+<odoo>
+    <record id="view_partner_form" model="ir.ui.view">
+        <field name="name">res.partner.form.inherit.super_module</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='category_id']" position="after">
+                <field name="date_naissance"/>
+                <field name="age"/>
+            </xpath>
+
+            <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+                <button
+                    name="action_open_seance"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-video-camera"
+                    invisible="not seance_count">
+                        <field name="seance_count" widget="statinfo" string="Séances"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -8,10 +8,10 @@
             id="submenu_menu"
             name="Super Submenu"
             sequence="10">
-            <menuitem
+            <!--<menuitem
                 id="appel_personne_menu"
                 action="appel_personne_action"
-                sequence="10"/>
+                sequence="10"/>-->
             <menuitem
                 id="appel_seance_menu"
                 action="appel_seance_action"
